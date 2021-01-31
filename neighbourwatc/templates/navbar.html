@@ -11,7 +11,7 @@
             <ul class="nav navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                 <li class="nav-item active">
-                     <img class="rounded-circle nav-img"src="{{ user.profile.profile_picture.url }}" alt="">
+                    <img class="rounded-circle nav-img"src="{{ user.profile.profile_photo.url }}" alt="">
                     &nbsp; <span class="text-white">{{user.username|title}}</span>
                 </li>
                 {% else %}
