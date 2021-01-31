@@ -44,3 +44,25 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+
+class Business(models.Model):
+    name = models.CharField(max_length=10)
+    biz_email = models.EmailField(max_length=15)
+    description = models.TextField(max_length=30, blank=True)
+    neighbourhood = models.ForeignKey(NeighbourHood, on_delete = models.CASCADE, related_name='business')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
+
+    def __str__(self):
+        return f'{self.name} Business'
+
+    def create_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+    
+    @classmethod
+    def search_business(cls, name):
+        return cls.objects.filter(name__icontains=name).all()
+        
