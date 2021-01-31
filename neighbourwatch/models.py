@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from pyuploadcare.dj.models import ImageField
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from pyuploadcare.dj.models import ImageField
+
 
 class NeighbourHood(models.Model):
     hood_name = models.CharField(max_length=10)
@@ -30,7 +31,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=50, blank=True)
     profile_photo = models.ImageField(upload_to='images/', default='default.png')
     location = models.CharField(max_length=10, blank=True, null=True)
-    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.SET_NULL, related_name='members', blank=True)
+    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='members', blank=True)
 
 
     def __str__(self):
