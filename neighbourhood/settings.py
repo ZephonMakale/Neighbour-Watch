@@ -19,7 +19,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'neighbourwatch.apps.NeighbourwatchConfig',
+    'neighbourwatc.apps.NeighbourwatcConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,9 +70,9 @@ WSGI_APPLICATION = 'neighbourhood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hoodwatch',
-    #     'USER': '<Your Database Username >',
-    # 'PASSWORD':'<Your Database Password>',
+        'NAME': 'hood',
+        'USER': 'macbookpro',
+    'PASSWORD':'12345678C.',
     }
 }
 
