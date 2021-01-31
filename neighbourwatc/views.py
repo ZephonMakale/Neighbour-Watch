@@ -25,6 +25,26 @@ def signup(request):
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+def hoods(request):
+    all_hoods = NeighbourHood.objects.all()
+    all_hoods = all_hoods[::-1]
+    params = {
+        'all_hoods': all_hoods
+    }
+    return render(request, 'all_hoods.html', params)
+
+def create_hood(request):
+    if request.method == 'POST':
+        form = NeighbourHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.admin = request.user.profile
+            hood.save()
+            return redirect('hood')
+    else:
+        form = NeighbourHoodForm()
+    return render(request, 'newhood.html', {'form': form})
+
 # Create your views here.
 def welcome(request):
     return HttpResponse('Welcome to the Moringa Tribune')
