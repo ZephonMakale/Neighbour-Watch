@@ -8,21 +8,21 @@
             <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img src="{{ hood.hood_logo.url }}" class="card-img" alt="...">
+                        <img src="{{ hood.hood_photo.url }}" class="card-img" alt="...">
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <h5 class="card-title tt">{{ hood.name }} ({{hood.location}})
+                            <h5 class="card-title tt">{{ hood.hood_name }} ({{hood.hood_location}})
                             </h5>
                             <h6 class="card-text">
                                 <span><strong>{{hood.members.count}}</strong> Member{{hood.members.count|pluralize}}</span>
                                 | <strong>{{ hood.business.count }}</strong> Businesses | <strong>
                                 {{ hood.hood_post.count }}</strong> Post{{ hood.hood_post.count|pluralize }}
                             </h6>
-                            <p class="card-text">{{hood.description}}</p>
+                            <!-- <p class="card-text">{{hood.description}}</p> -->
                             <p class="card-text"><span class="text-info">Police Tell</span>
-                                &nbsp;<strong>{{hood.police_number}}</strong> |
-                                <span class="text-info">Hospital Tell</span> <strong>{{hood.health_tell}}</strong></p>
+                                &nbsp;<strong>{{hood.hood_nyumbakumi }}</strong> |
+                                <!-- <span class="text-info">Hospital Tell</span> <strong>{{hood.health_tell}}</strong></p> -->
                             <p class="card-text">Administrator: <small class="text-muted">
                                 {{ hood.admin.user.username }}</small></p>
                         </div>
@@ -55,7 +55,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{bus.name}}
                                 </h5>
-                                <p class="card-text">{{bus.email}}</p>
+                                <p class="card-text">{{biz_email}}</p>
                                 <p class="card-text">{{bus.description}}</p>
                                 <p class="card-text">Owner: <small class="text-muted">
                                     {{ bus.user.user.username|title }}</small></p>
@@ -82,8 +82,7 @@
                     {% endfor %}
                 </div>
                 <hr>
-                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
