@@ -27,8 +27,8 @@ class NeighbourHood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    name = models.CharField(max_length=10, blank=True)
-    bio = models.TextField(max_length=50, blank=True)
+    name = models.CharField(max_length=15, blank=True)
+    bio = models.TextField(max_length=20, blank=True)
     profile_photo = models.ImageField(upload_to='images/', default='default.png')
     location = models.CharField(max_length=10, blank=True, null=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
@@ -48,8 +48,8 @@ class Profile(models.Model):
 
 
 class Business(models.Model):
-    name = models.CharField(max_length=10)
-    biz_email = models.EmailField(max_length=15)
+    name = models.CharField(max_length=20)
+    biz_email = models.EmailField(max_length=30)
     description = models.TextField(max_length=30, blank=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete = models.CASCADE, related_name='business')
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='owner')
